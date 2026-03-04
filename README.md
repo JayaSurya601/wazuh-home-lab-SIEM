@@ -11,10 +11,14 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 
 **⭐ Project Highlights**
 
-• Simulated Cross-Site Scripting (XSS) attack against DVWA
-• Protected web server using ModSecurity WAF + OWASP CRS
-• Collected logs using Wazuh Agent
-• Generated SIEM alerts in Wazuh Dashboard
+• Simulated Cross-Site Scripting (XSS) attack against DVWA   
+
+• Protected web server using ModSecurity WAF + OWASP CRS  
+
+• Collected logs using Wazuh Agent  
+
+• Generated SIEM alerts in Wazuh Dashboard  
+
 • Investigated attack through SOC-style workflow
 
 **🏗️ Lab Architecture**
