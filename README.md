@@ -78,9 +78,9 @@ The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS)
 A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
 
 **Payload Used**
-
+```
 <script>alert(123)</script>
-
+```
 This payload attempts to execute JavaScript in the victim's browser.
 
 **📊 Example SIEM Alert (Wazuh)**
@@ -99,13 +99,13 @@ After the attack was performed, Wazuh generated a security alert from the Apache
 | Decoder       | web-accesslog                      |
 
 **Captured Request**
-
+```
 GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
-
+```
 **Encoded version:**
-
+```
 /DVWA/vulnerabilities/xss_r/?name=%3Cscript%3Ealert%28123%29%3C%2Fscript%3E
-
+```
 **🛡️ WAF Detection**
 
 The OWASP CRS detected the malicious payload using multiple detection rules.
