@@ -194,6 +194,7 @@ Result: HTTP 403 – Request Blocked
 
 ![403_Blocked](screenshots/Forbidden.png)
 
+![MOdsecurity_Blocked](screenshots/ModSecurity_Rejected_Query.png)
 <br>
 
 **🔎 WAF Detection Pipeline**  
