@@ -131,19 +131,23 @@ Result: HTTP 403 – Request Blocked
 
 **🔎 WAF Detection Pipeline**
 
+```
 Attacker
+   │
    │ <script>alert(123)</script>
    ▼
 DVWA Web Server
+   │
    ▼
 ModSecurity WAF
+   │
    ▼
 OWASP CRS Detection Rules
    │
    ├─ 941100 XSS detected via libinjection
-   ├─ 941110 Script tag injection 
-   ├─ 941160 HTML injection pattern  
-   ├─ 941390 Javascript method detected 
+   ├─ 941110 Script tag injection
+   ├─ 941160 HTML injection pattern
+   ├─ 941390 Javascript method detected
    ▼
 Anomaly Score = 20
 Threshold = 5
@@ -154,7 +158,8 @@ Apache WAF Log
    ▼
 Wazuh Agent
    ▼
-Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard.
+Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
+```
 
 **🔎 SOC Investigation Summary**
 
