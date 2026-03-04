@@ -124,6 +124,7 @@ A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
 ```
 <script>alert(123)</script>
 ```
+![Payload](screenshots/payload.png)
 
 This payload attempts to execute JavaScript in the victim's browser.  
 
@@ -191,7 +192,7 @@ Threshold: 5
 
 Result: HTTP 403 – Request Blocked  
 
-![ModSecurity_Blocked_Alert](screenshots/ModSecurity_Rejected_Query.png)
+![403_Blocked](screenshots/Forbidden.png)
 
 <br>
 
