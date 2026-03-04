@@ -10,6 +10,7 @@ This project simulates a Cross-Site Scripting (XSS) attack against a vulnerable 
 Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC Dashboard
 
 **⭐ Project Highlights**
+
 • Simulated Cross-Site Scripting (XSS) attack against DVWA
 • Protected web server using ModSecurity WAF + OWASP CRS
 • Collected logs using Wazuh Agent
@@ -17,8 +18,11 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 • Investigated attack through SOC-style workflow
 
 **🏗️ Lab Architecture**
+
 The environment consists of three main systems:
+
   **System**	            **Purpose**
+  
 Web Server	        Hosts DVWA and WAF protection
 Wazuh SIEM Server	  Centralized log analysis and alerting
 Attacker Machine	  Simulates web attacks
@@ -26,6 +30,7 @@ Attacker Machine	  Simulates web attacks
 **🧩 Components**
 
 **🖥️ Web Server (Monitored Host)**
+
 • Ubuntu Server
 • Apache Web Server
 • DVWA (Damn Vulnerable Web Application)
@@ -35,16 +40,19 @@ Attacker Machine	  Simulates web attacks
 The Wazuh agent monitors system and web server logs and forwards them to the Wazuh Manager.
 
 **🛡️ Wazuh SIEM Server**
+
 • Wazuh Manager – Security event analysis
 • Wazuh Indexer (OpenSearch) – Data indexing and storage
 • Wazuh API – Management interface
 • Wazuh Dashboard – Visualization and investigation interface
 
 **🧪 Attacker Machine**
+
 • Kali Linux
 • Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.
 
 **🌐 Network Communication**
+
 | Source             | Destination        | Port  | Purpose                    |
 | ------------------ | ------------------ | ----- | -------------------------- |
 | Attacker           | Web Server         | 80    | HTTP web requests          |
@@ -55,21 +63,28 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 | Dashboard          | Wazuh API          | 55000 | Management communication   |
 
 **🛡️ Web Application Firewall Integration**
+
 The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS).
 
 **Configuration**
+
 • ModSecurity enabled in Apache
 • OWASP CRS deployed
 • Blocking mode enabled
 • Security events logged to: /var/log/apache2/error.log
 
 **🚨 Attack Simulation**
+
 A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
+
 **Payload Used**
+
 <script>alert(123)</script>
+
 This payload attempts to execute JavaScript in the victim's browser.
 
 **📊 Example SIEM Alert (Wazuh)**
+
 After the attack was performed, Wazuh generated a security alert from the Apache access log.
 
 | Field         | Value                              |
@@ -84,11 +99,15 @@ After the attack was performed, Wazuh generated a security alert from the Apache
 | Decoder       | web-accesslog                      |
 
 **Captured Request**
+
 GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
+
 **Encoded version:**
+
 /DVWA/vulnerabilities/xss_r/?name=%3Cscript%3Ealert%28123%29%3C%2Fscript%3E
 
 **🛡️ WAF Detection**
+
 The OWASP CRS detected the malicious payload using multiple detection rules.
 
 | Rule ID | Description                   |
@@ -99,15 +118,19 @@ The OWASP CRS detected the malicious payload using multiple detection rules.
 | 941390  | Javascript method detected    |
 
 🚫 WAF Blocking Rule
+
 | Rule ID | Description                    |
 | ------- | ------------------------------ |
 | 949110  | Inbound anomaly score exceeded |
 
 Anomaly Score: 20
+
 Threshold: 5
+
 Result: HTTP 403 – Request Blocked
 
 **🔎 WAF Detection Pipeline**
+
 Attacker
    │ <script>alert(123)</script>
    ▼
@@ -134,9 +157,11 @@ Wazuh Agent
 Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard.
 
 **🔎 SOC Investigation Summary**
+
 **Attack Type:** Cross-Site Scripting (XSS)
 
 **Investigation Steps**
+
 1.Suspicious HTTP request detected in Apache access logs
 2.Request contained an XSS payload
 3.ModSecurity OWASP CRS triggered detection rules
@@ -146,6 +171,7 @@ Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard.
 7.Wazuh SIEM generated an alert in the dashboard
 
 **Conclusion**
+
 The layered defense architecture successfully detected, blocked, and logged the attack, enabling SOC analysts to investigate the event through the SIEM dashboard.
 
 **🎯 MITRE ATT&CK Mapping**
@@ -155,11 +181,13 @@ The layered defense architecture successfully detected, blocked, and logged the 
 | Web Application Attack     | T1190    | Exploitation of public-facing application      |
 
 **Detection Source**
+
 • Apache access logs
 • ModSecurity WAF alerts
 • Wazuh SIEM correlation rules
 
 **🏆 Skills Demonstrated**
+
 • SIEM Deployment using Wazuh
 • Web Application Firewall configuration (ModSecurity + OWASP CRS)
 • Log collection and centralized monitoring
@@ -170,6 +198,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 • Layered defense architecture
 
 **🎥 Video Demonstration**
+
 The video shows:
 • XSS attack from Kali Linux
 • WAF blocking the request
@@ -177,6 +206,7 @@ The video shows:
 • Alert generated in Wazuh dashboard
 
 **🚀 Why This Project Matters**
+
 This lab demonstrates practical Blue Team security skills including:
 • Real attack simulation
 • Web application attack detection
@@ -185,6 +215,7 @@ This lab demonstrates practical Blue Team security skills including:
 • SOC-style alert investigation
 
 **🔮 Future Enhancements**
+
 • Active response configuration
 • Threat intelligence integration
 • Email / Slack alerting
@@ -192,6 +223,7 @@ This lab demonstrates practical Blue Team security skills including:
 • Custom decoders and rules
 
 **📂 Repository Structure**
+
 wazuh-home-lab-SIEM
 
 ├── README.md
@@ -204,9 +236,11 @@ wazuh-home-lab-SIEM
 │   ├── ModSecurity_Rejected_Query.png
 
 **🎯 Conclusion**
+
 This project demonstrates a complete defensive monitoring pipeline used in modern SOC environments.
 
 **The lab successfully shows:**
+
 • Web application attack detection
 • Web Application Firewall protection
 • Secure log collection
