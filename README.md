@@ -8,7 +8,9 @@ A Security Operations Center (SOC) home lab demonstrating real-world web attack 
 This project simulates a Cross-Site Scripting (XSS) attack against a vulnerable web application (DVWA) and shows how the attack is:
 
 Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC Dashboard
+
 <br>
+
 **⭐ Project Highlights**
 
 • Simulated Cross-Site Scripting (XSS) attack against DVWA   
@@ -20,7 +22,9 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 • Generated SIEM alerts in Wazuh Dashboard  
 
 • Investigated attack through SOC-style workflow
+
 <br>
+
 **🏗️ Lab Architecture**
 
 The environment consists of three main systems:
@@ -30,7 +34,11 @@ The environment consists of three main systems:
 Web Server	        Hosts DVWA and WAF protection
 Wazuh SIEM Server	  Centralized log analysis and alerting
 Attacker Machine	  Simulates web attacks
+
+![Lab Architecture](architecture/Lab_Architecture.png)
+
 <br>
+
 **🧩 Components**
 
 
@@ -69,7 +77,9 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 • Kali Linux  
 
 • Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.  
+
 <br>
+
 **🌐 Network Communication**  
 
 
@@ -100,7 +110,9 @@ The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS)
 • Blocking mode enabled  
 
 • Security events logged to: /var/log/apache2/error.log  
+
 <br>
+
 **🚨 Attack Simulation**  
 
 A Cross-Site Scripting (XSS) payload was injected into the DVWA application.  
@@ -113,7 +125,9 @@ A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
 ```
 
 This payload attempts to execute JavaScript in the victim's browser.  
+
 <br>
+
 **📊 Example SIEM Alert (Wazuh)**  
 
 
@@ -142,6 +156,9 @@ GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
 ```
 /DVWA/vulnerabilities/xss_r/?name=%3Cscript%3Ealert%28123%29%3C%2Fscript%3E
 ```
+
+![XSS Alert](screenshots/XSS_(Cross_Site_Scripting)_attempt.png)
+
 <br>
 
 **🛡️ WAF Detection**  
@@ -158,6 +175,7 @@ The OWASP CRS detected the malicious payload using multiple detection rules.
 | 941390  | Javascript method detected    |
 
 <br>
+
 **🚫 WAF Blocking Rule**  
 
 
@@ -206,6 +224,7 @@ Wazuh Agent
    ▼
 Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
 ```
+![ModSecurity_Blocked_Alert](screenshots/ModSecurity_Rejected_Query.png)
 
 <br>
 
@@ -330,7 +349,7 @@ wazuh-home-lab-SIEM
 ├── README.md
 │
 ├── architecture
-│   └── Lab_Architecture_Diagram.png
+│   └── Lab_Architecture.png
 │
 ├── screenshots
 │   ├── XSS_(Cross_Site_Scripting)_attempt.png
