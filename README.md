@@ -42,7 +42,7 @@ Attacker Machine	  Simulates web attacks
 **🧩 Components**
 <br>
 
-** Web Server (Monitored Host)**
+**Web Server (Monitored Host)**
 
 
 • Ubuntu Server  
@@ -60,7 +60,7 @@ Attacker Machine	  Simulates web attacks
 The Wazuh agent monitors system and web server logs and forwards them to the Wazuh Manager.
 
 
-** Wazuh SIEM Server**  
+**Wazuh SIEM Server**  
 
 • Wazuh Manager – Security event analysis   
 
@@ -71,7 +71,7 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 • Wazuh Dashboard – Visualization and investigation interface  
 
 
-** Attacker Machine**
+**Attacker Machine**
 
 
 • Kali Linux  
@@ -308,6 +308,8 @@ The video shows:
 • Logs generated in Apache  
 
 • Alert generated in Wazuh dashboard  
+
+[Watch the attack demonstration](video demonstration/WAF_SIEM_Web_Attack_Detection.mp4)
 
 <br>
 
