@@ -21,6 +21,7 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 
 • Investigated attack through SOC-style workflow
 
+
 **🏗️ Lab Architecture**
 
 The environment consists of three main systems:
@@ -31,31 +32,49 @@ Web Server	        Hosts DVWA and WAF protection
 Wazuh SIEM Server	  Centralized log analysis and alerting
 Attacker Machine	  Simulates web attacks
 
+
 **🧩 Components**
+
 
 **🖥️ Web Server (Monitored Host)**
 
-• Ubuntu Server
-• Apache Web Server
-• DVWA (Damn Vulnerable Web Application)
-• ModSecurity Web Application Firewall
-• OWASP Core Rule Set (CRS) v4.21.0
-• Wazuh Agent
+
+• Ubuntu Server  
+
+• Apache Web Server  
+
+• DVWA (Damn Vulnerable Web Application)  
+
+• ModSecurity Web Application Firewall  
+
+• OWASP Core Rule Set (CRS) v4.21.0  
+
+• Wazuh Agent  
+
 The Wazuh agent monitors system and web server logs and forwards them to the Wazuh Manager.
 
-**🛡️ Wazuh SIEM Server**
 
-• Wazuh Manager – Security event analysis
-• Wazuh Indexer (OpenSearch) – Data indexing and storage
-• Wazuh API – Management interface
-• Wazuh Dashboard – Visualization and investigation interface
+**🛡️ Wazuh SIEM Server**  
+
+• Wazuh Manager – Security event analysis   
+
+• Wazuh Indexer (OpenSearch) – Data indexing and storage  
+
+• Wazuh API – Management interface  
+
+• Wazuh Dashboard – Visualization and investigation interface  
+
 
 **🧪 Attacker Machine**
 
-• Kali Linux
-• Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.
 
-**🌐 Network Communication**
+• Kali Linux  
+
+• Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.  
+
+
+**🌐 Network Communication**  
+
 
 | Source             | Destination        | Port  | Purpose                    |
 | ------------------ | ------------------ | ----- | -------------------------- |
@@ -66,30 +85,44 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 | User Browser       | Wazuh Dashboard    | 443   | Dashboard access           |
 | Dashboard          | Wazuh API          | 55000 | Management communication   |
 
-**🛡️ Web Application Firewall Integration**
 
-The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS).
+**🛡️ Web Application Firewall Integration**  
 
-**Configuration**
 
-• ModSecurity enabled in Apache
-• OWASP CRS deployed
-• Blocking mode enabled
-• Security events logged to: /var/log/apache2/error.log
+The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS).  
 
-**🚨 Attack Simulation**
 
-A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
+**Configuration**  
+
+
+• ModSecurity enabled in Apache  
+
+• OWASP CRS deployed  
+
+• Blocking mode enabled  
+
+• Security events logged to: /var/log/apache2/error.log  
+
+
+**🚨 Attack Simulation**  
+
+A Cross-Site Scripting (XSS) payload was injected into the DVWA application.  
+
 
 **Payload Used**
+
 ```
 <script>alert(123)</script>
 ```
-This payload attempts to execute JavaScript in the victim's browser.
 
-**📊 Example SIEM Alert (Wazuh)**
+This payload attempts to execute JavaScript in the victim's browser.  
 
-After the attack was performed, Wazuh generated a security alert from the Apache access log.
+
+**📊 Example SIEM Alert (Wazuh)**  
+
+
+After the attack was performed, Wazuh generated a security alert from the Apache access log.  
+
 
 | Field         | Value                              |
 | ------------- | ---------------------------------- |
@@ -102,17 +135,23 @@ After the attack was performed, Wazuh generated a security alert from the Apache
 | Log Source    | /var/log/apache2/access.log        |
 | Decoder       | web-accesslog                      |
 
-**Captured Request**
+**Captured Request**  
+
 ```
 GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
 ```
-**Encoded version:**
+
+**Encoded version:**  
+
 ```
 /DVWA/vulnerabilities/xss_r/?name=%3Cscript%3Ealert%28123%29%3C%2Fscript%3E
 ```
-**🛡️ WAF Detection**
 
-The OWASP CRS detected the malicious payload using multiple detection rules.
+**🛡️ WAF Detection**  
+
+
+The OWASP CRS detected the malicious payload using multiple detection rules.  
+
 
 | Rule ID | Description                   |
 | ------- | ----------------------------- |
@@ -121,20 +160,24 @@ The OWASP CRS detected the malicious payload using multiple detection rules.
 | 941160  | HTML injection pattern        |
 | 941390  | Javascript method detected    |
 
-🚫 WAF Blocking Rule
+**🚫 WAF Blocking Rule**  
+
 
 | Rule ID | Description                    |
 | ------- | ------------------------------ |
 | 949110  | Inbound anomaly score exceeded |
 
-Anomaly Score: 20
 
-Threshold: 5
+Anomaly Score: 20  
 
-Result: HTTP 403 – Request Blocked
+Threshold: 5  
 
-**🔎 WAF Detection Pipeline**
+Result: HTTP 403 – Request Blocked  
 
+
+**🔎 WAF Detection Pipeline**  
+
+ 
 ```
 Attacker
    │
