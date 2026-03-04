@@ -40,9 +40,9 @@ Attacker Machine	  Simulates web attacks
 <br>
 
 **🧩 Components**
+<br>
 
-
-**🖥️ Web Server (Monitored Host)**
+** Web Server (Monitored Host)**
 
 
 • Ubuntu Server  
@@ -60,7 +60,7 @@ Attacker Machine	  Simulates web attacks
 The Wazuh agent monitors system and web server logs and forwards them to the Wazuh Manager.
 
 
-**🛡️ Wazuh SIEM Server**  
+** Wazuh SIEM Server**  
 
 • Wazuh Manager – Security event analysis   
 
@@ -71,13 +71,14 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 • Wazuh Dashboard – Visualization and investigation interface  
 
 
-**🧪 Attacker Machine**
+** Attacker Machine**
 
 
 • Kali Linux  
 
 • Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.  
 
+<br>
 <br>
 
 **🌐 Network Communication**  
@@ -190,6 +191,8 @@ Threshold: 5
 
 Result: HTTP 403 – Request Blocked  
 
+![ModSecurity_Blocked_Alert](screenshots/ModSecurity_Rejected_Query.png)
+
 <br>
 
 **🔎 WAF Detection Pipeline**  
@@ -224,7 +227,6 @@ Wazuh Agent
    ▼
 Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
 ```
-![ModSecurity_Blocked_Alert](screenshots/ModSecurity_Rejected_Query.png)
 
 <br>
 
