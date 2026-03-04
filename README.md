@@ -8,9 +8,7 @@ A Security Operations Center (SOC) home lab demonstrating real-world web attack 
 This project simulates a Cross-Site Scripting (XSS) attack against a vulnerable web application (DVWA) and shows how the attack is:
 
 Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC Dashboard
-
-
-
+<br>
 **⭐ Project Highlights**
 
 • Simulated Cross-Site Scripting (XSS) attack against DVWA   
@@ -22,9 +20,7 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 • Generated SIEM alerts in Wazuh Dashboard  
 
 • Investigated attack through SOC-style workflow
-
-
-
+<br>
 **🏗️ Lab Architecture**
 
 The environment consists of three main systems:
@@ -34,9 +30,7 @@ The environment consists of three main systems:
 Web Server	        Hosts DVWA and WAF protection
 Wazuh SIEM Server	  Centralized log analysis and alerting
 Attacker Machine	  Simulates web attacks
-
-
-
+<br>
 **🧩 Components**
 
 
@@ -75,9 +69,7 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 • Kali Linux  
 
 • Used to simulate Cross-Site Scripting (XSS) attacks against the DVWA application.  
-
-
-
+<br>
 **🌐 Network Communication**  
 
 
@@ -90,7 +82,7 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 | User Browser       | Wazuh Dashboard    | 443   | Dashboard access           |
 | Dashboard          | Wazuh API          | 55000 | Management communication   |
 
-
+<br>
 
 **🛡️ Web Application Firewall Integration**  
 
@@ -108,9 +100,7 @@ The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS)
 • Blocking mode enabled  
 
 • Security events logged to: /var/log/apache2/error.log  
-
-
-
+<br>
 **🚨 Attack Simulation**  
 
 A Cross-Site Scripting (XSS) payload was injected into the DVWA application.  
@@ -123,9 +113,7 @@ A Cross-Site Scripting (XSS) payload was injected into the DVWA application.
 ```
 
 This payload attempts to execute JavaScript in the victim's browser.  
-
-
-
+<br>
 **📊 Example SIEM Alert (Wazuh)**  
 
 
@@ -154,8 +142,7 @@ GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
 ```
 /DVWA/vulnerabilities/xss_r/?name=%3Cscript%3Ealert%28123%29%3C%2Fscript%3E
 ```
-
-
+<br>
 
 **🛡️ WAF Detection**  
 
@@ -170,6 +157,7 @@ The OWASP CRS detected the malicious payload using multiple detection rules.
 | 941160  | HTML injection pattern        |
 | 941390  | Javascript method detected    |
 
+<br>
 **🚫 WAF Blocking Rule**  
 
 
@@ -184,7 +172,7 @@ Threshold: 5
 
 Result: HTTP 403 – Request Blocked  
 
-
+<br>
 
 **🔎 WAF Detection Pipeline**  
 
@@ -219,7 +207,7 @@ Wazuh Agent
 Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
 ```
 
-
+<br>
 
 **🔎 SOC Investigation Summary**  
 
@@ -249,7 +237,7 @@ Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
 
 The layered defense architecture successfully detected, blocked, and logged the attack, enabling SOC analysts to investigate the event through the SIEM dashboard.  
 
-
+<br>
 
 **🎯 MITRE ATT&CK Mapping**
 | Attack Technique           | MITRE ID | Description                                    |
@@ -266,7 +254,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 • Wazuh SIEM correlation rules  
 
-
+<br>
 
 **🏆 Skills Demonstrated**
 
@@ -286,7 +274,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 • Layered defense architecture
 
-
+<br>
 
 **🎥 Video Demonstration**
 
@@ -300,6 +288,7 @@ The video shows:
 
 • Alert generated in Wazuh dashboard  
 
+<br>
 
 **🚀 Why This Project Matters**  
 
@@ -316,7 +305,7 @@ This lab demonstrates practical Blue Team security skills including:
 
 • SOC-style alert investigation  
 
-
+<br>
 
 **🔮 Future Enhancements**  
 
@@ -331,6 +320,7 @@ This lab demonstrates practical Blue Team security skills including:
 
 • Custom decoders and rules  
 
+<br>
 
 **📂 Repository Structure**  
 
@@ -346,6 +336,8 @@ wazuh-home-lab-SIEM
 │   ├── XSS_(Cross_Site_Scripting)_attempt.png
 │   ├── ModSecurity_Rejected_Query.png
 ```
+
+<br>
 
 **🎯 Conclusion**  
 
