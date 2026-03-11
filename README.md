@@ -35,7 +35,7 @@ Web Server	        Hosts DVWA and WAF protection
 Wazuh SIEM Server	  Centralized log analysis and alerting
 Attacker Machine	  Simulates web attacks
 
-![Lab Architecture](architecture/Lab_Architecture.png)
+
 
 <br>
 
