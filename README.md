@@ -358,8 +358,10 @@ wazuh-home-lab-SIEM
 │   └── Lab_Architecture.png
 │
 ├── screenshots
+│   ├── Forbidden.png
+│   ├── ModSecurity_Rejected_Query.png.png
 │   ├── XSS_(Cross_Site_Scripting)_attempt.png
-│   ├── ModSecurity_Rejected_Query.png
+│   ├── payload.png
 ```
 
 <br>
