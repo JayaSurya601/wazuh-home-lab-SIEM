@@ -1,4 +1,4 @@
-**🛡️ Wazuh SIEM Home Lab – WAF + Web Attack Detection**
+## 🛡️ Wazuh SIEM Home Lab – WAF + Web Attack Detection
 ![SIEM](https://img.shields.io/badge/SIEM-Wazuh-blue)
 ![WAF](https://img.shields.io/badge/WAF-ModSecurity-green)
 ![Attack Simulation](https://img.shields.io/badge/Attack-XSS-red)
@@ -11,7 +11,7 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 
 <br>
 
-**⭐ Project Highlights**
+## ⭐ Project Highlights
 
 • Simulated Cross-Site Scripting (XSS) attack against DVWA   
 
@@ -25,7 +25,7 @@ Detected → Blocked by WAF → Logged → Sent to SIEM → Investigated in SOC 
 
 <br>
 
-**🏗️ Lab Architecture**
+## 🏗️ Lab Architecture
 
 The environment consists of three main systems:
 
@@ -39,10 +39,10 @@ Attacker Machine	  Simulates web attacks
 
 <br>
 
-**🧩 Components**
+## 🧩 Components
 <br>
 
-**Web Server (Monitored Host)**
+**🖥️Web Server (Monitored Host)**
 
 
 • Ubuntu Server  
@@ -59,8 +59,11 @@ Attacker Machine	  Simulates web attacks
 
 The Wazuh agent monitors system and web server logs and forwards them to the Wazuh Manager.
 
+<br>
 
-**Wazuh SIEM Server**  
+**🛡️Wazuh SIEM Server**  
+
+• Ubuntu Server 
 
 • Wazuh Manager – Security event analysis   
 
@@ -70,8 +73,9 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 
 • Wazuh Dashboard – Visualization and investigation interface  
 
+<br>
 
-**Attacker Machine**
+**🧪Attacker Machine**
 
 
 • Kali Linux  
@@ -81,7 +85,7 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 <br>
 <br>
 
-**🌐 Network Communication**  
+## 🌐 Network Communication
 
 
 | Source             | Destination        | Port  | Purpose                    |
@@ -95,7 +99,7 @@ The Wazuh agent monitors system and web server logs and forwards them to the Waz
 
 <br>
 
-**🛡️ Web Application Firewall Integration**  
+## 🛡️ Web Application Firewall Integration
 
 
 The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS).  
@@ -114,7 +118,7 @@ The web server is protected using ModSecurity with the OWASP Core Rule Set (CRS)
 
 <br>
 
-**🚨 Attack Simulation**  
+## 🚨 Attack Simulation 
 
 A Cross-Site Scripting (XSS) payload was injected into the DVWA application.  
 
@@ -130,7 +134,7 @@ This payload attempts to execute JavaScript in the victim's browser.
 
 <br>
 
-**📊 Example SIEM Alert (Wazuh)**  
+## 📊 Example SIEM Alert (Wazuh)  
 
 
 After the attack was performed, Wazuh generated a security alert from the Apache access log.  
@@ -163,7 +167,7 @@ GET /DVWA/vulnerabilities/xss_r/?name=<script>alert(123)</script>
 
 <br>
 
-**🛡️ WAF Detection**  
+## 🛡️ WAF Detection  
 
 
 The OWASP CRS detected the malicious payload using multiple detection rules.  
@@ -178,7 +182,7 @@ The OWASP CRS detected the malicious payload using multiple detection rules.
 
 <br>
 
-**🚫 WAF Blocking Rule**  
+## 🚫 WAF Blocking Rule  
 
 
 | Rule ID | Description                    |
@@ -197,7 +201,7 @@ Result: HTTP 403 – Request Blocked
 ![MOdsecurity_Blocked](screenshots/ModSecurity_Rejected_Query.png)
 <br>
 
-**🔎 WAF Detection Pipeline**  
+## 🔎 WAF Detection Pipeline 
 
  
 ```
@@ -232,7 +236,7 @@ Wazuh Manager → OpenSearch Indexer → Wazuh Dashboard
 
 <br>
 
-**🔎 SOC Investigation Summary**  
+## 🔎 SOC Investigation Summary  
 
 
 **Attack Type:** Cross-Site Scripting (XSS)  
@@ -262,7 +266,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 <br>
 
-**🎯 MITRE ATT&CK Mapping**
+## 🎯 MITRE ATT&CK Mapping
 | Attack Technique           | MITRE ID | Description                                    |
 | -------------------------- | -------- | ---------------------------------------------- |
 | Cross-Site Scripting (XSS) | T1059    | Command and script execution through web input |
@@ -279,7 +283,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 <br>
 
-**🏆 Skills Demonstrated**
+## 🏆 Skills Demonstrated
 
 • SIEM Deployment using Wazuh  
 
@@ -299,7 +303,7 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 <br>
 
-**🎥 Video Demonstration**
+## 🎥 Video Demonstration
 
 The video shows:  
 
@@ -315,7 +319,7 @@ The video shows:
 
 <br>
 
-**🚀 Why This Project Matters**  
+## 🚀 Why This Project Matters
 
 
 This lab demonstrates practical Blue Team security skills including:  
@@ -332,7 +336,7 @@ This lab demonstrates practical Blue Team security skills including:
 
 <br>
 
-**🔮 Future Enhancements**  
+## 🔮 Future Enhancements
 
 
 • Active response configuration  
@@ -347,7 +351,7 @@ This lab demonstrates practical Blue Team security skills including:
 
 <br>
 
-**📂 Repository Structure**  
+## 📂 Repository Structure
 
 wazuh-home-lab-SIEM  
 
@@ -366,7 +370,7 @@ wazuh-home-lab-SIEM
 
 <br>
 
-**🎯 Conclusion**  
+## 🎯 Conclusion
 
 
 This project demonstrates a complete defensive monitoring pipeline used in modern SOC environments.  
