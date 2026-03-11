@@ -303,22 +303,6 @@ The layered defense architecture successfully detected, blocked, and logged the 
 
 <br>
 
-## 🎥 Video Demonstration
-
-The video shows:  
-
-• XSS attack from Kali Linux  
-
-• WAF blocking the request  
-
-• Logs generated in Apache  
-
-• Alert generated in Wazuh dashboard  
-
-[Watch the attack demonstration](video demonstration/WAF_SIEM_Web_Attack_Detection.mp4)
-
-<br>
-
 ## 🚀 Why This Project Matters
 
 
